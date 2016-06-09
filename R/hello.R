@@ -26,6 +26,7 @@ getbajadaprecios<- function(){
   x$X2008 <- as.numeric(x$X2008)
   x <- x[,c("Barris","X2011","X2008")]
   x$diferencia <- x$X2008 - x$X2011
+  x <- x[order(-x$diferencia), ]
   return(x)
 }
 
