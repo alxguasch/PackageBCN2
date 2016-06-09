@@ -38,8 +38,10 @@ getestudios<- function(){
   x$Estudis.universitaris...CFGS.grau.superior <- as.numeric(x$Estudis.universitaris...CFGS.grau.superior)
   x$TOTAL <- as.numeric(x$TOTAL)
   x$con_estudios_universitarios <- x$Estudis.universitaris...CFGS.grau.superior/x$TOTAL*100
+  x <- x[order(-x$con_estudios_universitarios), ]
   x$Sense..estudis <- x$Sense..estudis/x$TOTAL*100
   x$Sense..estudis <- sapply(x$Sense..estudis, function(num) {round(num, 3)})
+  x <- x[order(-x$Sense..estudis), ]
   return(x)
 }
 
