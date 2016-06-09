@@ -50,6 +50,7 @@ getelec_auto_data<- function(){
   x <- read.csv(file = fichero, sep = ";")
   x$Barris <- as.character(x$Barris)
   x$porcentaje_han_votado <- x$Votants/x$Electors*100
+  x <- x[order(-x$porcentaje_han_votado), ]
   x$porcentaje_votos_derechas  <- (x$PP+x$C.s)/x$Votants*100
   x$porcentaje_votos_izquierdas <- (x$PSC+x$CatSique..esPot..2.)/x$Votants*100
   x$porcentaje_votos_catalanistas <- x$JxSi..1./x$Votants*100
